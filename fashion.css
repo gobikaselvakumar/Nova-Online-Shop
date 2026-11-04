@@ -1,0 +1,120 @@
+.womens-slider{
+    background:#fff;
+    margin:0 30px;
+    padding:0%;
+    margin-bottom:15px;
+}
+.womens-slider .womens{
+    display:flex;
+    gap:20px;
+    margin-top:10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background: #fff;
+}
+.womens-slider .womens img{
+    max-width: 200px;
+    max-height: 200px;
+    background: #fbfbfb;
+    border:1px solid #f8f4e9;
+    border-radius:10px;
+    padding:10px;
+}
+.womens-slider .womens::-webkit-scrollbar{
+    display: none;
+}
+.womens-slider-with-price{
+    background:#fff;
+    margin:0 30px;
+    padding:20px;
+    margin-top:40px;
+}
+.womens-slider-with-price .womens{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background: #fff;
+}
+.womens-slider-with-price .womens::-webkit-scrollbar{
+    display: none;
+}
+.womens-card{
+    display:flex;
+    flex-direction: column;
+    justify-content: end;
+    min-width:210px;
+    background:#fbfbfb;
+    border:1px solid #f6f6df;
+    border-radius:10px;
+    padding:10px;
+}
+.womens-card img{
+    width:150px;
+    margin:0 50px;
+}
+.womens-slider-with-price2{
+    background:#fff;
+    margin:0 30px;
+    padding:20px;
+    margin-top:40px;
+}
+.womens-slider-with-price2 .womens{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background: #fff;
+}
+.womens-slider-with-price2 .womens::-webkit-scrollbar{
+    display: none;
+}
+.womens-slider-with-price3{
+    background:#fff;
+    margin:0 30px;
+    padding:20px;
+    margin-top:40px;
+}
+.womens-slider-with-price3 .womens{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background: #fff;
+}
+.womens-slider-with-price3 .womens::-webkit-scrollbar{
+    display: none;
+}
+.womens-slider-with-price4{
+    background:#fff;
+    margin:0 30px;
+    padding:20px;
+    margin-top:40px;
+}
+.womens-slider-with-price4 .womens{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background: #fff;
+}
+.womens-slider-with-price4 .womens::-webkit-scrollbar{
+    display: none;
+}

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Cart</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./cart.css">
+</head>
+
+<body>
+
+    <nav>
+
+        <a href="/">
+            <img src="./images/Novalogo.jpg"
+                 width="100px"
+                 alt="">
+        </a>
+
+        <div class="nav-country">
+
+            <div>
+                <img src="./images/locationicon.png"
+                     alt=""
+                     width="30px">
+
+                <p>Deliver to</p>
+
+                <h1>India</h1>
+            </div>
+
+        </div>
+
+        <div class="nav-search">
+
+            <div class="nav-search-gategory">
+                <p>All</p>
+
+                <img src="./images/dropdown.jpg"
+                     height="12"
+                     alt="">
+            </div>
+
+            <input type="text"
+                   class="nav-search-input"
+                   placeholder="Search products">
+
+            <img src="./images/search.jpg"
+                 class="nav-search-icon"
+                 height="20"
+                 alt="">
+        </div>
+
+        <div class="nav-language">
+
+            <img src="./images/language.jpg"
+                 width="35px"
+                 alt="">
+
+            <select id="language-select">
+
+                <option value="en">EN</option>
+                <option value="ta">தமிழ்</option>
+                <option value="hi">हिन्दी</option>
+
+            </select>
+
+        </div>
+
+        <div class="nav-text">
+
+            <p>
+                <a href="/signin.html">
+                    Hello, Sign in
+                </a>
+            </p>
+
+            <h1>
+                Account & Lists
+                <img src="./images/dropdown.jpg"
+                     width="8px"
+                     alt="">
+            </h1>
+
+        </div>
+
+        <div class="nav-text">
+
+            <a href="/orderhistory.html">
+
+                <p>Returns</p>
+
+                <h1>& Orders</h1>
+
+            </a>
+
+        </div>
+
+        <a href="" class="nav-cart">
+
+            <img src="./images/cart.jpg"
+                 width="35px"
+                 alt="">
+
+            <h4>Cart</h4>
+
+        </a>
+
+    </nav>
+
+    <div class="nav-bottom">
+
+        <div>
+
+            <img src="./images/menu.jpg"
+                 width="25px"
+                 alt="">
+
+            <p>All</p>
+
+        </div>
+
+        <a href="/orderhistory.html">
+            <p>Order History</p>
+        </a>
+
+        <a href="contact.html">
+            <p>Contact</p>
+        </a>
+
+        <a href="/myaccount.html">
+            <p>My Account</p>
+        </a>
+
+    </div>
+
+    <div class="cart">
+
+        <div class="cart-left">
+
+            <h1>Shopping Cart</h1>
+
+            <hr>
+
+            <!-- Dynamic Products -->
+            <div id="cart-items"></div>
+
+            <!-- Left Subtotal -->
+            <div class="car-list-subtotal"
+                 id="subtotal-left">
+            </div>
+
+        </div>
+
+        <div class="cart-right">
+
+            <div class="cart-free-delivery">
+
+                <p>&#x2705</p>
+
+                <p>
+                    Your order qualifies for FREE Shipping.
+                    <b>Choose this option at checkout.</b>
+                    See Details
+                </p>
+
+            </div>
+
+            <!-- Right Subtotal -->
+            <p class="cart-subtotal"
+               id="subtotal-right">
+            </p>
+
+            <p class="cart-rigth-gift">
+                <input type="checkbox">
+                This order contains a gift
+            </p>
+
+            <a href="./checkout.html">
+
+                <button>
+                    Proceed To Checkout
+                </button>
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <footer class="footer-cart">
+
+        <img src="./images/Novalogo.jpg"
+             width="100"
+             alt="">
+
+        <p>
+            © 2024, Nova.com, Inc. or its affiliates
+        </p>
+
+    </footer>
+
+    <script>
+
+        let cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
+
+        let cartContainer =
+        document.getElementById("cart-items");
+
+        let total = 0;
+
+        if(cart.length === 0){
+
+            cartContainer.innerHTML =
+            "<h2>Your Cart is Empty</h2>";
+
+        }
+
+        else{
+
+            cart.forEach((item,index)=>{
+
+                total += item.price;
+
+                cartContainer.innerHTML += `
+
+                <div class="product-cart-list">
+
+                    <img src="${item.image}"
+                         alt=""
+                         width="200px">
+
+                    <div>
+
+                        <div class="product-cart-titleprice">
+
+                            <p>
+                                ${item.name}
+                            </p>
+
+                            <p>
+                                <b>₹${item.price}</b>
+                            </p>
+
+                        </div>
+
+                        <p class="product-cart-bestseller">
+                            <span>#1 Best Seller</span>
+                            in Nova Products
+                        </p>
+
+                        <p class="product-cart-stock">
+                            In Stock
+                        </p>
+
+                        <p class="product-cart-delivery">
+                            FREE Delivery Available
+                        </p>
+
+                        <p class="product-cart-return">
+                            FREE Returns &#11191
+                        </p>
+
+                        <div class="cart-list-action">
+
+                            <select>
+                                <option value="1">
+                                    Qty: 1
+                                </option>
+
+                                <option value="2">
+                                    Qty: 2
+                                </option>
+
+                                <option value="3">
+                                    Qty: 3
+                                </option>
+                            </select>
+
+                            <hr>
+
+                            <p class="action-btn"
+                               onclick="removeItem(${index})">
+
+                               Delete
+
+                            </p>
+
+                            <hr>
+
+                            <p class="action-btn">
+                                Save for later
+                            </p>
+
+                            <hr>
+
+                            <p class="action-btn">
+                                Share
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <hr>
+
+                `;
+
+            });
+
+        }
+
+        document.getElementById("subtotal-left")
+        .innerHTML =
+        `SubTotal (${cart.length} items):
+        <b>₹${total}</b>`;
+
+        document.getElementById("subtotal-right")
+        .innerHTML =
+        `SubTotal (${cart.length} items):
+        <b>₹${total}</b>`;
+
+        function removeItem(index){
+
+            cart.splice(index,1);
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
+
+            location.reload();
+
+        }
+
+    </script>
+
+</body>
+</html>

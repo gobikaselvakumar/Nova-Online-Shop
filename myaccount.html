@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Nova Account</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./myaccount.css">
+</head>
+<body>
+    <nav>
+        <a href="/">
+        <img src="./images/Novalogo.jpg" width="100px"  alt="">
+        </a>
+        <div class="nav-country">
+            <div>
+                <img src="./images/locationicon.png" alt="" width="30px">
+                <p>Deliver to</p>
+                <h1>India</h1>
+            </div>
+        </div>
+        <div class="nav-search">
+        <div class="nav-search-gategory">
+             <p>All</p>
+             <img src="./images/dropdown.jpg" height="12" alt="">
+        </div>
+            <input type="text" id="search-input" class="nav-search-input" placeholder="Search products">
+            <img src="./images/search.jpg" class="nav-search-icon" height="20" alt="">
+        </div>
+        <div class="nav-language">
+            <img src="./images/language.jpg"  width="35px" alt="">
+            <select id="language-select"> 
+                <option value="en">EN</option> 
+                <option value="ta">தமிழ்</option> 
+                <option value="hi">हिन्दी</option> 
+            </select>
+        </div>
+        <div class="nav-text">
+            <p><a href="./signin.html">Hello, Sign in</a></p>
+            <h1>Account & Lists <img src="./images/dropdown.jpg" width="8px" alt=""></h1>
+        </div>
+        <div class="nav-text">
+            <a href="/orderhistory.html">
+            <p>Returns</p>
+            <h1>& Orders </h1>
+            </a>
+            </div>
+        <div class="nav-cart">
+        <a href="./cart.html" class="nav-cart">
+            <img src="./images/cart.jpg" width="35px" alt="">
+            <h4>Cart</h4>
+        </a>
+        </div>
+
+    </nav>
+<div class="nav-bottom">
+    <div>
+        <img src="./images/menu.jpg" width="25px" alt="">
+        <a href="/index.html">
+        <p>All</p>
+        </a>
+    </div>
+    <a href="/orderhistory.html">
+    <p>Order History</p>
+    </a>
+    <a href="/contact.html">
+    <p>Contact</p>
+    </a>
+    <a href="/myaccount.html">
+    <p>My Account</p>
+    </a>
+</div>
+<div class="account-container">
+    <div class="account-top">
+        <img src="./images/profileimg.png" alt="Profile" class="profile-img">
+        <div>
+            <h1 class="account-title">GOBIKA</h1>
+            <p class="account-mail">gobika@nova.com</p>
+            <p class="account-status">Premium Member</p>
+        </div>
+    </div>
+    <hr>
+    <div class="account-section">
+        <h2>Personal Information</h2>
+        <div class="account-details">
+            <p><span>Full Name</span> Gobika </p>
+            <p><span>Username</span> gobika@nova</p>
+            <p><span>Email Address</span> gobika@gmail.com</p>
+            <p><span>Phone Number</span> +91 95642 31590</p>
+            <p><span>Date of Birth</span> 10 Aug 2006</p>
+            <p><span>Gender</span> Female</p>
+            <p><span>Location</span> Coimbatore, Tamil Nadu</p>
+            <p><span>Language</span> English, Tamil</p>
+        </div>
+    </div>
+    <div class="account-section">
+        <h2>Account Information</h2>
+        <div class="account-details">
+            <p><span>Member Since</span> January 2025</p>
+            <p><span>Account Type</span> Premium User</p>
+            <a href="orderhistory.html">
+            <p><span>Total Orders</span> 2 Orders</p>
+            </a>
+            <a href="cart.html">
+            <p><span>Cart Items</span> 2 Products</p>
+            </a>
+            <div class="address-box">
+            <span>Saved Address</span> 
+                <p id="address-text">
+                    21, Anna Nagar, Coimbatore, Tamil Nadu - 641001
+                </p>
+            <button class="edit-btn" onclick="editAddress()">
+                Edit Address
+            </button>
+    </div>
+            <p><span>Preferred Payment</span> UPI / Debit Card</p>
+            <p><span>Account ID</span> NOVA10245</p>
+            <p><span>Customer Status</span> Active</p>
+        </div>
+    </div>
+    <div class="account-section">
+    <h2>Nova Services</h2>
+    <div class="account-details">
+        <div class="toggle-box">
+            <span>Prime Delivery</span>
+            <button class="toggle-btn enabled"
+            onclick="toggleStatus(this)">
+            Enabled
+            </button>
+        </div>
+        <div class="toggle-box">
+            <span>Email Notifications</span>
+            <button class="toggle-btn enabled"
+            onclick="toggleStatus(this)">
+            Enabled
+            </button>
+        </div>
+        <div class="toggle-box">
+            <span>Two-Step Verification</span>
+            <button class="toggle-btn active"
+            onclick="toggleActive(this)">
+            Active
+            </button>
+        </div>
+        <p><span>Gift Cards Balance</span> $120.50</p>
+        <p><span>Customer Support</span> 24/7 Available</p>
+    </div>
+</div>
+</div>
+<script>
+function toggleStatus(button){
+    if(button.innerText === "Enabled"){
+        button.innerText = "Disabled";
+        button.classList.remove("enabled");
+        button.classList.add("disabled");
+    }
+    else{
+        button.innerText = "Enabled";
+        button.classList.remove("disabled");
+        button.classList.add("enabled");
+    }
+}
+function toggleActive(button){
+    if(button.innerText === "Active"){
+        button.innerText = "Inactive";
+        button.classList.remove("active");
+        button.classList.add("inactive");
+    }
+    else{
+        button.innerText = "Active";
+        button.classList.remove("inactive");
+        button.classList.add("active");
+    }
+}
+function editAddress(){
+
+    let currentAddress =
+    document.getElementById("address-text").innerText;
+
+    let newAddress = prompt(
+        "Edit your address:",
+        currentAddress
+    );
+
+    if(newAddress !== null && newAddress.trim() !== ""){
+        document.getElementById("address-text").innerText =
+        newAddress;
+    }
+}
+</script>
+</body>
+</html>
